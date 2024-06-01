@@ -9,8 +9,10 @@ public record Inertia : Scalar<Inertia>
 	private const double SlugFeetSquared = 0.0421401100938048;
 	public static Inertia operator +(Inertia left, Inertia right) => Add(left, right);
 	public static Inertia operator -(Inertia left, Inertia right) => Subtract(left, right);
-	public static Inertia operator *(Inertia left, Inertia right) => Multiply(left, right);
-	public static Inertia operator /(Inertia left, Inertia right) => Divide(left, right);
+	public static Inertia operator *(Inertia left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Inertia left, Inertia right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Inertia operator *(Inertia left, double right) => Multiply(left, right);
+	public static Inertia operator /(Inertia left, double right) => Divide(left, right);
 	public static bool operator <(Inertia left, Inertia right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Inertia left, Inertia right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Inertia left, Inertia right) => CompareTo(left, right) > 0;

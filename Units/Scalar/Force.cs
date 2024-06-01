@@ -10,8 +10,10 @@ public record Force : Scalar<Force>
 	private const double PoundsForce = 0.2248089430997107;
 	public static Force operator +(Force left, Force right) => Add(left, right);
 	public static Force operator -(Force left, Force right) => Subtract(left, right);
-	public static Force operator *(Force left, Force right) => Multiply(left, right);
-	public static Force operator /(Force left, Force right) => Divide(left, right);
+	public static Force operator *(Force left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Force left, Force right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Force operator *(Force left, double right) => Multiply(left, right);
+	public static Force operator /(Force left, double right) => Divide(left, right);
 	public static bool operator <(Force left, Force right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Force left, Force right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Force left, Force right) => CompareTo(left, right) > 0;

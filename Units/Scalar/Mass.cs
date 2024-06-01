@@ -11,8 +11,12 @@ public record Mass : Scalar<Mass>
 	private const double Ounces = 35.27396194958041;
 	public static Mass operator +(Mass left, Mass right) => Add(left, right);
 	public static Mass operator -(Mass left, Mass right) => Subtract(left, right);
-	public static Mass operator *(Mass left, Mass right) => Multiply(left, right);
-	public static Mass operator /(Mass left, Mass right) => Divide(left, right);
+	public static Mass operator *(Mass left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Mass left, Mass right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Density operator /(Mass left, Volume right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Volume operator /(Mass left, Density right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Mass operator *(Mass left, double right) => Multiply(left, right);
+	public static Mass operator /(Mass left, double right) => Divide(left, right);
 	public static bool operator <(Mass left, Mass right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Mass left, Mass right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Mass left, Mass right) => CompareTo(left, right) > 0;

@@ -9,8 +9,11 @@ public record AngularAcceleration : Scalar<AngularAcceleration>
 	private const double DegreesPerSecondSquared = 0.017453292519943295;
 	public static AngularAcceleration operator +(AngularAcceleration left, AngularAcceleration right) => Add(left, right);
 	public static AngularAcceleration operator -(AngularAcceleration left, AngularAcceleration right) => Subtract(left, right);
-	public static AngularAcceleration operator *(AngularAcceleration left, AngularAcceleration right) => Multiply(left, right);
-	public static AngularAcceleration operator /(AngularAcceleration left, AngularAcceleration right) => Divide(left, right);
+	public static AngularAcceleration operator *(AngularAcceleration left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(AngularAcceleration left, AngularAcceleration right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static AngularVelocity operator *(AngularAcceleration left, Time right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static AngularAcceleration operator *(AngularAcceleration left, double right) => Multiply(left, right);
+	public static AngularAcceleration operator /(AngularAcceleration left, double right) => Divide(left, right);
 	public static bool operator <(AngularAcceleration left, AngularAcceleration right) => CompareTo(left, right) < 0;
 	public static bool operator <=(AngularAcceleration left, AngularAcceleration right) => CompareTo(left, right) <= 0;
 	public static bool operator >(AngularAcceleration left, AngularAcceleration right) => CompareTo(left, right) > 0;

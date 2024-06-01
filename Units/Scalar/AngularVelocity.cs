@@ -10,8 +10,11 @@ public record AngularVelocity : Scalar<AngularVelocity>
 	private const double RevolutionsPerMinute = 0.10471975511965977;
 	public static AngularVelocity operator +(AngularVelocity left, AngularVelocity right) => Add(left, right);
 	public static AngularVelocity operator -(AngularVelocity left, AngularVelocity right) => Subtract(left, right);
-	public static AngularVelocity operator *(AngularVelocity left, AngularVelocity right) => Multiply(left, right);
-	public static AngularVelocity operator /(AngularVelocity left, AngularVelocity right) => Divide(left, right);
+	public static AngularVelocity operator *(AngularVelocity left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(AngularVelocity left, AngularVelocity right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static AngularAcceleration operator /(AngularVelocity left, Time right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static AngularVelocity operator *(AngularVelocity left, double right) => Multiply(left, right);
+	public static AngularVelocity operator /(AngularVelocity left, double right) => Divide(left, right);
 	public static bool operator <(AngularVelocity left, AngularVelocity right) => CompareTo(left, right) < 0;
 	public static bool operator <=(AngularVelocity left, AngularVelocity right) => CompareTo(left, right) <= 0;
 	public static bool operator >(AngularVelocity left, AngularVelocity right) => CompareTo(left, right) > 0;

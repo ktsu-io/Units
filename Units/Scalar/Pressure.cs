@@ -12,8 +12,10 @@ public record Pressure : Scalar<Pressure>
 	private const double PoundsPerSquareInch = 0.00014503773773020923;
 	public static Pressure operator +(Pressure left, Pressure right) => Add(left, right);
 	public static Pressure operator -(Pressure left, Pressure right) => Subtract(left, right);
-	public static Pressure operator *(Pressure left, Pressure right) => Multiply(left, right);
-	public static Pressure operator /(Pressure left, Pressure right) => Divide(left, right);
+	public static Pressure operator *(Pressure left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Pressure left, Pressure right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Pressure operator *(Pressure left, double right) => Multiply(left, right);
+	public static Pressure operator /(Pressure left, double right) => Divide(left, right);
 	public static bool operator <(Pressure left, Pressure right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Pressure left, Pressure right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Pressure left, Pressure right) => CompareTo(left, right) > 0;

@@ -9,8 +9,11 @@ public record AngularDistance : Scalar<AngularDistance>
 	private const double Degrees = 0.017453292519943295;
 	public static AngularDistance operator +(AngularDistance left, AngularDistance right) => Add(left, right);
 	public static AngularDistance operator -(AngularDistance left, AngularDistance right) => Subtract(left, right);
-	public static AngularDistance operator *(AngularDistance left, AngularDistance right) => Multiply(left, right);
-	public static AngularDistance operator /(AngularDistance left, AngularDistance right) => Divide(left, right);
+	public static AngularDistance operator *(AngularDistance left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(AngularDistance left, AngularDistance right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static AngularVelocity operator /(AngularDistance left, Time right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static AngularDistance operator *(AngularDistance left, double right) => Multiply(left, right);
+	public static AngularDistance operator /(AngularDistance left, double right) => Divide(left, right);
 	public static bool operator <(AngularDistance left, AngularDistance right) => CompareTo(left, right) < 0;
 	public static bool operator <=(AngularDistance left, AngularDistance right) => CompareTo(left, right) <= 0;
 	public static bool operator >(AngularDistance left, AngularDistance right) => CompareTo(left, right) > 0;

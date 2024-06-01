@@ -11,8 +11,12 @@ public record Density : Scalar<Density>
 	private const double PoundsPerCubicInch = 27679.904710194;
 	public static Density operator +(Density left, Density right) => Add(left, right);
 	public static Density operator -(Density left, Density right) => Subtract(left, right);
-	public static Density operator *(Density left, Density right) => Multiply(left, right);
-	public static Density operator /(Density left, Density right) => Divide(left, right);
+	public static Density operator *(Density left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Density left, Density right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Mass operator *(Density left, Volume right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Volume operator /(Density left, Mass right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Density operator *(Density left, double right) => Multiply(left, right);
+	public static Density operator /(Density left, double right) => Divide(left, right);
 	public static bool operator <(Density left, Density right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Density left, Density right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Density left, Density right) => CompareTo(left, right) > 0;

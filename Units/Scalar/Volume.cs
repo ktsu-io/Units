@@ -34,8 +34,11 @@ public record Volume : Scalar<Volume>
 
 	public static Volume operator +(Volume left, Volume right) => Add(left, right);
 	public static Volume operator -(Volume left, Volume right) => Subtract(left, right);
-	public static Volume operator *(Volume left, Volume right) => Multiply(left, right);
-	public static Volume operator /(Volume left, Volume right) => Divide(left, right);
+	public static Volume operator *(Volume left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Volume left, Volume right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Area operator /(Volume left, LinearDistance right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Volume operator *(Volume left, double right) => Multiply(left, right);
+	public static Volume operator /(Volume left, double right) => Divide(left, right);
 	public static bool operator <(Volume left, Volume right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Volume left, Volume right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Volume left, Volume right) => CompareTo(left, right) > 0;

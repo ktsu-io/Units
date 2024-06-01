@@ -18,8 +18,10 @@ public record Time : Scalar<Time>
 	private const double Nanoseconds = 1000000000;
 	public static Time operator +(Time left, Time right) => Add(left, right);
 	public static Time operator -(Time left, Time right) => Subtract(left, right);
-	public static Time operator *(Time left, Time right) => Multiply(left, right);
-	public static Time operator /(Time left, Time right) => Divide(left, right);
+	public static Time operator *(Time left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Time left, Time right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Time operator *(Time left, double right) => Multiply(left, right);
+	public static Time operator /(Time left, double right) => Divide(left, right);
 	public static bool operator <(Time left, Time right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Time left, Time right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Time left, Time right) => CompareTo(left, right) > 0;

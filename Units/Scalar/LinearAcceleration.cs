@@ -10,8 +10,11 @@ public record LinearAcceleration : Scalar<LinearAcceleration>
 	private const double Gravity = 0.10197162129779283;
 	public static LinearAcceleration operator +(LinearAcceleration left, LinearAcceleration right) => Add(left, right);
 	public static LinearAcceleration operator -(LinearAcceleration left, LinearAcceleration right) => Subtract(left, right);
-	public static LinearAcceleration operator *(LinearAcceleration left, LinearAcceleration right) => Multiply(left, right);
-	public static LinearAcceleration operator /(LinearAcceleration left, LinearAcceleration right) => Divide(left, right);
+	public static LinearAcceleration operator *(LinearAcceleration left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(LinearAcceleration left, LinearAcceleration right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static LinearVelocity operator *(LinearAcceleration left, Time right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static LinearAcceleration operator *(LinearAcceleration left, double right) => Multiply(left, right);
+	public static LinearAcceleration operator /(LinearAcceleration left, double right) => Divide(left, right);
 	public static bool operator <(LinearAcceleration left, LinearAcceleration right) => CompareTo(left, right) < 0;
 	public static bool operator <=(LinearAcceleration left, LinearAcceleration right) => CompareTo(left, right) <= 0;
 	public static bool operator >(LinearAcceleration left, LinearAcceleration right) => CompareTo(left, right) > 0;

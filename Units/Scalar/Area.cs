@@ -15,8 +15,12 @@ public record Area : Scalar<Area>
 	private const double SquareMiles = 3.8610215854245e-7;
 	public static Area operator +(Area left, Area right) => Add(left, right);
 	public static Area operator -(Area left, Area right) => Subtract(left, right);
-	public static Area operator *(Area left, Area right) => Multiply(left, right);
-	public static Area operator /(Area left, Area right) => Divide(left, right);
+	public static Area operator *(Area left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Area left, Area right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Volume operator *(Area left, LinearDistance right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static LinearDistance operator /(Area left, LinearDistance right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Area operator *(Area left, double right) => Multiply(left, right);
+	public static Area operator /(Area left, double right) => Divide(left, right);
 	public static bool operator <(Area left, Area right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Area left, Area right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Area left, Area right) => CompareTo(left, right) > 0;

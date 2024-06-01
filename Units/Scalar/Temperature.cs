@@ -11,8 +11,10 @@ public record Temperature : Scalar<Temperature>
 	private const double FahrenheitRatio = 5 / 9;
 	public static Temperature operator +(Temperature left, Temperature right) => Add(left, right);
 	public static Temperature operator -(Temperature left, Temperature right) => Subtract(left, right);
-	public static Temperature operator *(Temperature left, Temperature right) => Multiply(left, right);
-	public static Temperature operator /(Temperature left, Temperature right) => Divide(left, right);
+	public static Temperature operator *(Temperature left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Temperature left, Temperature right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Temperature operator *(Temperature left, double right) => Multiply(left, right);
+	public static Temperature operator /(Temperature left, double right) => Divide(left, right);
 	public static bool operator <(Temperature left, Temperature right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Temperature left, Temperature right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Temperature left, Temperature right) => CompareTo(left, right) > 0;

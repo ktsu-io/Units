@@ -6,16 +6,16 @@ namespace ktsu.io.Units.Scalar;
 
 public abstract record Scalar
 {
-	protected double BaseValue { get; init; }
+	internal double BaseValue { get; init; }
 }
 
 public abstract record Scalar<TDerived> : Scalar where TDerived : Scalar<TDerived>, new()
 {
-	protected static TDerived Add(Scalar<TDerived> left, Scalar<TDerived> right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue + right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
-	protected static TDerived Subtract(Scalar<TDerived> left, Scalar<TDerived> right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue - right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
-	protected static TDerived Multiply(Scalar<TDerived> left, Scalar<TDerived> right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue * right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
-	protected static TDerived Divide(Scalar<TDerived> left, Scalar<TDerived> right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue / right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
-	protected static int CompareTo(Scalar<TDerived> left, Scalar<TDerived> right) => left is not null && right is not null ? left.BaseValue.CompareTo(right.BaseValue) : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
+	protected static TDerived Add(Scalar<TDerived> left, Scalar right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue + right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
+	protected static TDerived Subtract(Scalar<TDerived> left, Scalar right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue - right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
+	protected static TDerived Multiply(Scalar<TDerived> left, Scalar right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue * right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
+	protected static TDerived Divide(Scalar<TDerived> left, Scalar right) => left is not null && right is not null ? new() { BaseValue = left.BaseValue / right.BaseValue } : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
+	protected static int CompareTo(Scalar<TDerived> left, Scalar right) => left is not null && right is not null ? left.BaseValue.CompareTo(right.BaseValue) : throw new ArgumentNullException(left is null ? nameof(left) : nameof(right));
 
 	protected static TDerived Add(Scalar<TDerived> left, double right) => left is not null ? new() { BaseValue = left.BaseValue + right } : throw new ArgumentNullException(nameof(left));
 	protected static TDerived Subtract(Scalar<TDerived> left, double right) => left is not null ? new() { BaseValue = left.BaseValue - right } : throw new ArgumentNullException(nameof(left));

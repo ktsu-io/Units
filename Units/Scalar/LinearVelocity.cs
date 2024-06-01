@@ -13,8 +13,12 @@ public record LinearVelocity : Scalar<LinearVelocity>
 	private const double Mach = 0.002938669957977;
 	public static LinearVelocity operator +(LinearVelocity left, LinearVelocity right) => Add(left, right);
 	public static LinearVelocity operator -(LinearVelocity left, LinearVelocity right) => Subtract(left, right);
-	public static LinearVelocity operator *(LinearVelocity left, LinearVelocity right) => Multiply(left, right);
-	public static LinearVelocity operator /(LinearVelocity left, LinearVelocity right) => Divide(left, right);
+	public static LinearVelocity operator *(LinearVelocity left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(LinearVelocity left, LinearVelocity right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static LinearDistance operator *(LinearVelocity left, Time right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static LinearAcceleration operator /(LinearVelocity left, Time right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static LinearVelocity operator *(LinearVelocity left, double right) => Multiply(left, right);
+	public static LinearVelocity operator /(LinearVelocity left, double right) => Divide(left, right);
 	public static bool operator <(LinearVelocity left, LinearVelocity right) => CompareTo(left, right) < 0;
 	public static bool operator <=(LinearVelocity left, LinearVelocity right) => CompareTo(left, right) <= 0;
 	public static bool operator >(LinearVelocity left, LinearVelocity right) => CompareTo(left, right) > 0;

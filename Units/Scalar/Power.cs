@@ -10,8 +10,10 @@ public record Power : Scalar<Power>
 	private const double Horsepower = 0.001341022089595;
 	public static Power operator +(Power left, Power right) => Add(left, right);
 	public static Power operator -(Power left, Power right) => Subtract(left, right);
-	public static Power operator *(Power left, Power right) => Multiply(left, right);
-	public static Power operator /(Power left, Power right) => Divide(left, right);
+	public static Power operator *(Power left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(Power left, Power right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static Power operator *(Power left, double right) => Multiply(left, right);
+	public static Power operator /(Power left, double right) => Divide(left, right);
 	public static bool operator <(Power left, Power right) => CompareTo(left, right) < 0;
 	public static bool operator <=(Power left, Power right) => CompareTo(left, right) <= 0;
 	public static bool operator >(Power left, Power right) => CompareTo(left, right) > 0;

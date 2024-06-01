@@ -1,5 +1,6 @@
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 #pragma warning disable CA2225 // Operator overloads have named alternates
+#pragma warning disable CA1062 // Validate arguments of public methods
 
 namespace ktsu.io.Units.Scalar;
 
@@ -19,8 +20,10 @@ public record LinearDistance : Scalar<LinearDistance>
 	private const double Parsecs = 30856775814671900;
 	public static LinearDistance operator +(LinearDistance left, LinearDistance right) => Add(left, right);
 	public static LinearDistance operator -(LinearDistance left, LinearDistance right) => Subtract(left, right);
-	public static LinearDistance operator *(LinearDistance left, LinearDistance right) => Multiply(left, right);
-	public static LinearDistance operator /(LinearDistance left, LinearDistance right) => Divide(left, right);
+	public static Area operator *(LinearDistance left, LinearDistance right) => new() { BaseValue = Multiply(left, right).BaseValue };
+	public static Ratio operator /(LinearDistance left, LinearDistance right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static LinearDistance operator *(LinearDistance left, double right) => Multiply(left, right);
+	public static LinearDistance operator /(LinearDistance left, double right) => Divide(left, right);
 	public static bool operator <(LinearDistance left, LinearDistance right) => CompareTo(left, right) < 0;
 	public static bool operator <=(LinearDistance left, LinearDistance right) => CompareTo(left, right) <= 0;
 	public static bool operator >(LinearDistance left, LinearDistance right) => CompareTo(left, right) > 0;
