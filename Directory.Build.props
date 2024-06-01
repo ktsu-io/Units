@@ -22,6 +22,7 @@
     <None Include="..\README.md" Pack="True" PackagePath="\"/>
     <None Include="..\DESCRIPTION" Pack="True" PackagePath="\"/>
     <None Include="..\AUTHORS" Pack="True" PackagePath="\"/>
+    <None Include="..\VERSION" Pack="True" PackagePath="\"/>
     <InternalsVisibleTo Include="$(RootNamespace).Test" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
   </ItemGroup>
