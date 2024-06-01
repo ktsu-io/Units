@@ -22,6 +22,7 @@ public record LinearDistance : Scalar<LinearDistance>
 	public static LinearDistance operator -(LinearDistance left, LinearDistance right) => Subtract(left, right);
 	public static Area operator *(LinearDistance left, LinearDistance right) => new() { BaseValue = Multiply(left, right).BaseValue };
 	public static Ratio operator /(LinearDistance left, LinearDistance right) => new() { BaseValue = Divide(left, right).BaseValue };
+	public static LinearDistance operator *(LinearDistance left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
 	public static LinearDistance operator *(LinearDistance left, double right) => Multiply(left, right);
 	public static LinearDistance operator /(LinearDistance left, double right) => Divide(left, right);
 	public static bool operator <(LinearDistance left, LinearDistance right) => CompareTo(left, right) < 0;
