@@ -20,4 +20,7 @@ public record Temperature : Scalar<Temperature>
 	public static Temperature FromKelvin(double value) => new() { BaseValue = value / Kelvin };
 	public static Temperature FromCelsius(double value) => new() { BaseValue = (value + CelsiusOffset) / Kelvin };
 	public static Temperature FromFahrenheit(double value) => new() { BaseValue = (value + FahrenheitOffset) * FahrenheitRatio / Kelvin };
+	public double ToKelvin() => BaseValue * Kelvin;
+	public double ToCelsius() => (BaseValue * Kelvin) - CelsiusOffset;
+	public double ToFahrenheit() => (BaseValue * Kelvin * (1 / FahrenheitRatio)) - FahrenheitOffset;
 }
