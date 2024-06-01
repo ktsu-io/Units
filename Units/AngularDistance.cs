@@ -1,8 +1,8 @@
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace ktsu.io.Units;
 
-using Degrees = Single;
-using Radians = Single;
+using Degrees = Double;
+using Radians = Double;
 
 public static class AngularDistance
 {

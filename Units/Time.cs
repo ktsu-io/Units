@@ -1,13 +1,13 @@
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 namespace ktsu.io.Units;
 
-using Days = Single;
-using Hours = Single;
-using Minutes = Single;
-using Months = Single;
-using Seconds = Single;
-using Weeks = Single;
-using Years = Single;
+using Days = Double;
+using Hours = Double;
+using Minutes = Double;
+using Months = Double;
+using Seconds = Double;
+using Weeks = Double;
+using Years = Double;
 
 public static class Time
 {
