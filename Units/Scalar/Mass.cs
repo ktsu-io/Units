@@ -9,6 +9,9 @@ public record Mass : Scalar<Mass>
 	private const double Grams = 1000;
 	private const double Pounds = 2.2046226218487757;
 	private const double Ounces = 35.27396194958041;
+
+	public override string SIBaseUnitName => "kg";
+
 	public static Mass operator +(Mass left, Mass right) => Add(left, right);
 	public static Mass operator -(Mass left, Mass right) => Subtract(left, right);
 	public static Mass operator *(Mass left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

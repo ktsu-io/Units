@@ -9,6 +9,9 @@ public record Density : Scalar<Density>
 	private const double GramsPerCubicCentimeter = 1000;
 	private const double PoundsPerCubicFoot = 16.018463373960924;
 	private const double PoundsPerCubicInch = 27679.904710194;
+
+	public override string SIBaseUnitName => "kg/m³";
+
 	public static Density operator +(Density left, Density right) => Add(left, right);
 	public static Density operator -(Density left, Density right) => Subtract(left, right);
 	public static Density operator *(Density left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

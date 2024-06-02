@@ -8,6 +8,9 @@ public record LinearAcceleration : Scalar<LinearAcceleration>
 	private const double MetersPerSecondSquared = 1;
 	private const double FeetPerSecondSquared = 0.3048;
 	private const double Gravity = 0.10197162129779283;
+
+	public override string SIBaseUnitName => "m/s²";
+
 	public static LinearAcceleration operator +(LinearAcceleration left, LinearAcceleration right) => Add(left, right);
 	public static LinearAcceleration operator -(LinearAcceleration left, LinearAcceleration right) => Subtract(left, right);
 	public static LinearAcceleration operator *(LinearAcceleration left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

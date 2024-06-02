@@ -3,10 +3,11 @@
 
 namespace ktsu.io.Units.Scalar;
 
-
 public abstract record Scalar
 {
 	internal double BaseValue { get; init; }
+	public abstract string SIBaseUnitName { get; }
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 }
 
 public abstract record Scalar<TDerived> : Scalar where TDerived : Scalar<TDerived>, new()

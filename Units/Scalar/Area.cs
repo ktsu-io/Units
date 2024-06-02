@@ -13,6 +13,9 @@ public record Area : Scalar<Area>
 	private const double SquareFeet = 10.76391041671;
 	private const double SquareYards = 1.1959900463011;
 	private const double SquareMiles = 3.8610215854245e-7;
+
+	public override string SIBaseUnitName => "m²";
+
 	public static Area operator +(Area left, Area right) => Add(left, right);
 	public static Area operator -(Area left, Area right) => Subtract(left, right);
 	public static Area operator *(Area left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

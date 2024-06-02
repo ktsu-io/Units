@@ -5,8 +5,10 @@ namespace ktsu.io.Units.Scalar;
 
 public record LinearMomentum : Scalar<LinearMomentum>
 {
-	private const double KilogramMeterPerSecond = 1;
-	private const double SlugFootPerSecond = 0.3048;
+	private const double KilogramMetersPerSecond = 1;
+	private const double SlugFeetPerSecond = 0.3048;
+
+	public override string SIBaseUnitName => "kg·m/s";
 
 	public static LinearMomentum operator +(LinearMomentum left, LinearMomentum right) => Add(left, right);
 	public static LinearMomentum operator -(LinearMomentum left, LinearMomentum right) => Subtract(left, right);
@@ -20,8 +22,8 @@ public record LinearMomentum : Scalar<LinearMomentum>
 	public static bool operator <=(LinearMomentum left, LinearMomentum right) => CompareTo(left, right) <= 0;
 	public static bool operator >(LinearMomentum left, LinearMomentum right) => CompareTo(left, right) > 0;
 	public static bool operator >=(LinearMomentum left, LinearMomentum right) => CompareTo(left, right) >= 0;
-	public static LinearMomentum FromKilogramMeterPerSecond(double value) => new() { BaseValue = value / KilogramMeterPerSecond };
-	public static LinearMomentum FromSlugFootPerSecond(double value) => new() { BaseValue = value / SlugFootPerSecond };
-	public double ToKilogramMeterPerSecond() => BaseValue * KilogramMeterPerSecond;
-	public double ToSlugFootPerSecond() => BaseValue * SlugFootPerSecond;
+	public static LinearMomentum FromKilogramMeterPerSecond(double value) => new() { BaseValue = value / KilogramMetersPerSecond };
+	public static LinearMomentum FromSlugFootPerSecond(double value) => new() { BaseValue = value / SlugFeetPerSecond };
+	public double ToKilogramMeterPerSecond() => BaseValue * KilogramMetersPerSecond;
+	public double ToSlugFootPerSecond() => BaseValue * SlugFeetPerSecond;
 }

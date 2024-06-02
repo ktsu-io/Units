@@ -9,6 +9,8 @@ public record MolarMass : Scalar<MolarMass>
 	private const double GramsPerMole = 1000;
 	private const double PoundsPerMole = 2.2046226218487757;
 
+	public override string SIBaseUnitName => "kg/mol";
+
 	public static MolarMass operator +(MolarMass left, MolarMass right) => Add(left, right);
 	public static MolarMass operator -(MolarMass left, MolarMass right) => Subtract(left, right);
 	public static MolarMass operator *(MolarMass left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

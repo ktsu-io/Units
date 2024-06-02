@@ -7,6 +7,9 @@ public record Inertia : Scalar<Inertia>
 {
 	private const double KilogramMetersSquared = 1;
 	private const double SlugFeetSquared = 0.0421401100938048;
+
+	public override string SIBaseUnitName => "kg·m²";
+
 	public static Inertia operator +(Inertia left, Inertia right) => Add(left, right);
 	public static Inertia operator -(Inertia left, Inertia right) => Subtract(left, right);
 	public static Inertia operator *(Inertia left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

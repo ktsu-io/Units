@@ -11,6 +11,9 @@ public record LinearVelocity : Scalar<LinearVelocity>
 	private const double MilesPerHour = 2.2369362920544025;
 	private const double LightSpeed = 299792458;
 	private const double Mach = 0.002938669957977;
+
+	public override string SIBaseUnitName => "m/s";
+
 	public static LinearVelocity operator +(LinearVelocity left, LinearVelocity right) => Add(left, right);
 	public static LinearVelocity operator -(LinearVelocity left, LinearVelocity right) => Subtract(left, right);
 	public static LinearVelocity operator *(LinearVelocity left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

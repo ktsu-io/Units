@@ -7,6 +7,9 @@ public record Torque : Scalar<Torque>
 {
 	private const double NewtonMeters = 1;
 	private const double FootPounds = 0.7375621492772656;
+
+	public override string SIBaseUnitName => "N·m";
+
 	public static Torque operator +(Torque left, Torque right) => Add(left, right);
 	public static Torque operator -(Torque left, Torque right) => Subtract(left, right);
 	public static Torque operator *(Torque left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

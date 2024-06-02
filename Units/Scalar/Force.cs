@@ -8,6 +8,9 @@ public record Force : Scalar<Force>
 	private const double Newtons = 1;
 	private const double Dynes = 100000;
 	private const double PoundsForce = 0.2248089430997107;
+
+	public override string SIBaseUnitName => "N";
+
 	public static Force operator +(Force left, Force right) => Add(left, right);
 	public static Force operator -(Force left, Force right) => Subtract(left, right);
 	public static Force operator *(Force left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };

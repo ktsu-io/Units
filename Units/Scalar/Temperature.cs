@@ -9,6 +9,9 @@ public record Temperature : Scalar<Temperature>
 	private const double CelsiusOffset = 273.15;
 	private const double FahrenheitOffset = 459.67;
 	private const double FahrenheitRatio = 5 / 9;
+
+	public override string SIBaseUnitName => "K";
+
 	public static Temperature operator +(Temperature left, Temperature right) => Add(left, right);
 	public static Temperature operator -(Temperature left, Temperature right) => Subtract(left, right);
 	public static Temperature operator *(Temperature left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
