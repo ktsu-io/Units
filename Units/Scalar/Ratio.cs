@@ -5,9 +5,6 @@ namespace ktsu.io.Units.Scalar;
 
 public record Ratio : Scalar<Ratio>
 {
-	protected override string SIBaseUnitName => string.Empty;
-	public override string ToString() => $"{BaseValue}";
-
 	public static Ratio operator +(Ratio left, Ratio right) => Add(left, right);
 	public static Ratio operator -(Ratio left, Ratio right) => Subtract(left, right);
 	public static Ratio operator *(Ratio left, Ratio right) => Multiply(left, right);

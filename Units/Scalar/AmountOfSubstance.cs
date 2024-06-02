@@ -8,7 +8,6 @@ public record AmountOfSubstance : Scalar<AmountOfSubstance>
 	private const double Moles = 1;
 
 	protected override string SIBaseUnitName => "mol";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static AmountOfSubstance operator +(AmountOfSubstance left, AmountOfSubstance right) => Add(left, right);
 	public static AmountOfSubstance operator -(AmountOfSubstance left, AmountOfSubstance right) => Subtract(left, right);

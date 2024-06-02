@@ -12,7 +12,6 @@ public record Pressure : Scalar<Pressure>
 	private const double PoundsPerSquareInch = 0.00014503773773020923;
 
 	protected override string SIBaseUnitName => "Pa";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Pressure operator +(Pressure left, Pressure right) => Add(left, right);
 	public static Pressure operator -(Pressure left, Pressure right) => Subtract(left, right);

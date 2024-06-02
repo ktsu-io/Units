@@ -9,7 +9,6 @@ public record Inertia : Scalar<Inertia>
 	private const double SlugFeetSquared = 0.0421401100938048;
 
 	protected override string SIBaseUnitName => "kg·m²";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Inertia operator +(Inertia left, Inertia right) => Add(left, right);
 	public static Inertia operator -(Inertia left, Inertia right) => Subtract(left, right);

@@ -11,7 +11,6 @@ public record Density : Scalar<Density>
 	private const double PoundsPerCubicInch = 27679.904710194;
 
 	protected override string SIBaseUnitName => "kg/m³";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Density operator +(Density left, Density right) => Add(left, right);
 	public static Density operator -(Density left, Density right) => Subtract(left, right);

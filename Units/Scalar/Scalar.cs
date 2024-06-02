@@ -9,6 +9,7 @@ public abstract record Scalar
 	protected virtual string SIBaseUnitName => string.Empty;
 
 	public override int GetHashCode() => BaseValue.GetHashCode();
+	public sealed override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 }
 
 public abstract record Scalar<TDerived> : Scalar where TDerived : Scalar<TDerived>, new()

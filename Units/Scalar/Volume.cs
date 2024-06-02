@@ -33,7 +33,6 @@ public record Volume : Scalar<Volume>
 	private const double Teaspoons = 202884.136211058;
 
 	protected override string SIBaseUnitName => "m³";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Volume operator +(Volume left, Volume right) => Add(left, right);
 	public static Volume operator -(Volume left, Volume right) => Subtract(left, right);

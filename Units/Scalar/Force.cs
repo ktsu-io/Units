@@ -10,7 +10,6 @@ public record Force : Scalar<Force>
 	private const double PoundsForce = 0.2248089430997107;
 
 	protected override string SIBaseUnitName => "N";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Force operator +(Force left, Force right) => Add(left, right);
 	public static Force operator -(Force left, Force right) => Subtract(left, right);

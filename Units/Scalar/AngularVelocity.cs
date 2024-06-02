@@ -10,7 +10,6 @@ public record AngularVelocity : Scalar<AngularVelocity>
 	private const double RevolutionsPerMinute = 0.10471975511965977;
 
 	protected override string SIBaseUnitName => "rad/s";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static AngularVelocity operator +(AngularVelocity left, AngularVelocity right) => Add(left, right);
 	public static AngularVelocity operator -(AngularVelocity left, AngularVelocity right) => Subtract(left, right);

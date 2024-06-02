@@ -9,7 +9,6 @@ public record AngularMomentum : Scalar<AngularMomentum>
 	private const double SlugFeetSquaredPerSecond = 0.0421401100938048;
 
 	protected override string SIBaseUnitName => "kg·m²/s";
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static AngularMomentum operator +(AngularMomentum left, AngularMomentum right) => Add(left, right);
 	public static AngularMomentum operator -(AngularMomentum left, AngularMomentum right) => Subtract(left, right);
