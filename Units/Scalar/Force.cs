@@ -9,7 +9,7 @@ public record Force : Scalar<Force>
 	private const double Dynes = 100000;
 	private const double PoundsForce = 0.2248089430997107;
 
-	public override string SIBaseUnitName => "N";
+	protected override string SIBaseUnitName => "N";
 
 	public static Force operator +(Force left, Force right) => Add(left, right);
 	public static Force operator -(Force left, Force right) => Subtract(left, right);

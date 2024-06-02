@@ -9,7 +9,7 @@ public record Power : Scalar<Power>
 	private const double Kilowatt = 0.001;
 	private const double Horsepower = 0.001341022089595;
 
-	public override string SIBaseUnitName => "W";
+	protected override string SIBaseUnitName => "W";
 
 	public static Power operator +(Power left, Power right) => Add(left, right);
 	public static Power operator -(Power left, Power right) => Subtract(left, right);

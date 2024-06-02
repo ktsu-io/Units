@@ -17,7 +17,7 @@ public record Time : Scalar<Time>
 	private const double Microseconds = 1000000;
 	private const double Nanoseconds = 1000000000;
 
-	public override string SIBaseUnitName => "s";
+	protected override string SIBaseUnitName => "s";
 
 	public static Time operator +(Time left, Time right) => Add(left, right);
 	public static Time operator -(Time left, Time right) => Subtract(left, right);

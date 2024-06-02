@@ -11,7 +11,7 @@ public record Pressure : Scalar<Pressure>
 	private const double Bars = 1E-5;
 	private const double PoundsPerSquareInch = 0.00014503773773020923;
 
-	public override string SIBaseUnitName => "Pa";
+	protected override string SIBaseUnitName => "Pa";
 
 	public static Pressure operator +(Pressure left, Pressure right) => Add(left, right);
 	public static Pressure operator -(Pressure left, Pressure right) => Subtract(left, right);

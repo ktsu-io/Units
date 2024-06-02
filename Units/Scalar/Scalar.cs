@@ -6,8 +6,10 @@ namespace ktsu.io.Units.Scalar;
 public abstract record Scalar
 {
 	internal double BaseValue { get; init; }
-	public virtual string SIBaseUnitName => string.Empty;
-	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
+	protected virtual string SIBaseUnitName => string.Empty;
+
+	public override int GetHashCode() => BaseValue.GetHashCode();
+	public override string? ToString() => $"{BaseValue} {SIBaseUnitName}";
 }
 
 public abstract record Scalar<TDerived> : Scalar where TDerived : Scalar<TDerived>, new()

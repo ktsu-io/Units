@@ -19,7 +19,7 @@ public record LinearDistance : Scalar<LinearDistance>
 	private const double LightYears = 9460730472580800;
 	private const double Parsecs = 30856775814671900;
 
-	public override string SIBaseUnitName => "m";
+	protected override string SIBaseUnitName => "m";
 
 	public static LinearDistance operator +(LinearDistance left, LinearDistance right) => Add(left, right);
 	public static LinearDistance operator -(LinearDistance left, LinearDistance right) => Subtract(left, right);

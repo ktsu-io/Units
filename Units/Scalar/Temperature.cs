@@ -10,7 +10,7 @@ public record Temperature : Scalar<Temperature>
 	private const double FahrenheitOffset = 459.67;
 	private const double FahrenheitRatio = 5 / 9;
 
-	public override string SIBaseUnitName => "K";
+	protected override string SIBaseUnitName => "K";
 
 	public static Temperature operator +(Temperature left, Temperature right) => Add(left, right);
 	public static Temperature operator -(Temperature left, Temperature right) => Subtract(left, right);
