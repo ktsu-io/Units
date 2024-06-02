@@ -9,7 +9,6 @@ public record Mass : Scalar<Mass>
 	private const double Grams = 1000;
 	private const double Pounds = 2.2046226218487757;
 	private const double Ounces = 35.27396194958041;
-	private const double Moles = 6.02214076e+23;
 	public static Mass operator +(Mass left, Mass right) => Add(left, right);
 	public static Mass operator -(Mass left, Mass right) => Subtract(left, right);
 	public static Mass operator *(Mass left, Ratio right) => new() { BaseValue = Multiply(left, right).BaseValue };
@@ -26,10 +25,8 @@ public record Mass : Scalar<Mass>
 	public static Mass FromGrams(double value) => new() { BaseValue = value / Grams };
 	public static Mass FromPounds(double value) => new() { BaseValue = value / Pounds };
 	public static Mass FromOunces(double value) => new() { BaseValue = value / Ounces };
-	public static Mass FromMoles(double value) => new() { BaseValue = value / Moles };
 	public double ToKilograms() => BaseValue * Kilograms;
 	public double ToGrams() => BaseValue * Grams;
 	public double ToPounds() => BaseValue * Pounds;
 	public double ToOunces() => BaseValue * Ounces;
-	public double ToMoles() => BaseValue * Moles;
 }
