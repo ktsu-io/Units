@@ -10,6 +10,7 @@ public record MolarMass : Scalar<MolarMass>
 	private const double PoundsPerMole = 2.2046226218487757;
 
 	protected override string SIBaseUnitName => "kg/mol";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static MolarMass operator +(MolarMass left, MolarMass right) => Add(left, right);
 	public static MolarMass operator -(MolarMass left, MolarMass right) => Subtract(left, right);

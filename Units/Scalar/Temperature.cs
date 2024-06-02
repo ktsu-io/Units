@@ -11,6 +11,7 @@ public record Temperature : Scalar<Temperature>
 	private const double FahrenheitRatio = 5 / 9;
 
 	protected override string SIBaseUnitName => "K";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Temperature operator +(Temperature left, Temperature right) => Add(left, right);
 	public static Temperature operator -(Temperature left, Temperature right) => Subtract(left, right);

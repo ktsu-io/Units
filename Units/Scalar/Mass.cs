@@ -11,6 +11,7 @@ public record Mass : Scalar<Mass>
 	private const double Ounces = 35.27396194958041;
 
 	protected override string SIBaseUnitName => "kg";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Mass operator +(Mass left, Mass right) => Add(left, right);
 	public static Mass operator -(Mass left, Mass right) => Subtract(left, right);

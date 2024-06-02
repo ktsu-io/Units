@@ -9,6 +9,7 @@ public record LinearMomentum : Scalar<LinearMomentum>
 	private const double SlugFeetPerSecond = 0.3048;
 
 	protected override string SIBaseUnitName => "kg·m/s";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static LinearMomentum operator +(LinearMomentum left, LinearMomentum right) => Add(left, right);
 	public static LinearMomentum operator -(LinearMomentum left, LinearMomentum right) => Subtract(left, right);

@@ -10,6 +10,7 @@ public record LinearAcceleration : Scalar<LinearAcceleration>
 	private const double Gravity = 0.10197162129779283;
 
 	protected override string SIBaseUnitName => "m/s²";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static LinearAcceleration operator +(LinearAcceleration left, LinearAcceleration right) => Add(left, right);
 	public static LinearAcceleration operator -(LinearAcceleration left, LinearAcceleration right) => Subtract(left, right);

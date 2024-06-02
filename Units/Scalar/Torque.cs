@@ -9,6 +9,7 @@ public record Torque : Scalar<Torque>
 	private const double FootPounds = 0.7375621492772656;
 
 	protected override string SIBaseUnitName => "N·m";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Torque operator +(Torque left, Torque right) => Add(left, right);
 	public static Torque operator -(Torque left, Torque right) => Subtract(left, right);

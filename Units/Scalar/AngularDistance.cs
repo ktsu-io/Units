@@ -9,6 +9,7 @@ public record AngularDistance : Scalar<AngularDistance>
 	private const double Degrees = 0.017453292519943295;
 
 	protected override string SIBaseUnitName => "rad";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static AngularDistance operator +(AngularDistance left, AngularDistance right) => Add(left, right);
 	public static AngularDistance operator -(AngularDistance left, AngularDistance right) => Subtract(left, right);

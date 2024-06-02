@@ -20,6 +20,7 @@ public record LinearDistance : Scalar<LinearDistance>
 	private const double Parsecs = 30856775814671900;
 
 	protected override string SIBaseUnitName => "m";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static LinearDistance operator +(LinearDistance left, LinearDistance right) => Add(left, right);
 	public static LinearDistance operator -(LinearDistance left, LinearDistance right) => Subtract(left, right);

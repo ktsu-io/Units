@@ -9,6 +9,7 @@ public record AngularAcceleration : Scalar<AngularAcceleration>
 	private const double DegreesPerSecondSquared = 0.017453292519943295;
 
 	protected override string SIBaseUnitName => "rad/s²";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static AngularAcceleration operator +(AngularAcceleration left, AngularAcceleration right) => Add(left, right);
 	public static AngularAcceleration operator -(AngularAcceleration left, AngularAcceleration right) => Subtract(left, right);

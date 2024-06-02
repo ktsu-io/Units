@@ -15,6 +15,7 @@ public record Area : Scalar<Area>
 	private const double SquareMiles = 3.8610215854245e-7;
 
 	protected override string SIBaseUnitName => "m²";
+	public override string ToString() => $"{BaseValue} {SIBaseUnitName}";
 
 	public static Area operator +(Area left, Area right) => Add(left, right);
 	public static Area operator -(Area left, Area right) => Subtract(left, right);
